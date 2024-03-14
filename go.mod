@@ -1,4 +1,4 @@
-module framework/goods
+module  github.com/15733012783/goodsproto
 
 go 1.20
 
