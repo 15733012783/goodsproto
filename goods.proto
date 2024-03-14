@@ -42,9 +42,6 @@ message CreateGoodsRequest {
 
 message CreateGoodsResponse {
   GoodsInfo     GoodsInfo     = 10;
-  Property      Property      = 20;
-  PropertyValue PropertyValue = 30;
-  Sku           Sku           = 40;
 }
 
 service Goods {
