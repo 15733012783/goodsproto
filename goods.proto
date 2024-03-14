@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package goods;
+option go_package = "./proto";
+
+message GoodsInfo  {
+  string   GoodsName = 10;
+  string   Image = 20;
+  string   Description = 30;
+  int64    Brand = 40;
+  int64    Status = 50;
+  string   Supplier = 60;
+}
+
+// 商品属性表
+message Property  {
+  string  Name = 10;    //商品属性名
+}
+
+// 商品属性值
+message PropertyValue {
+  int64   PropertyId = 10; //属性id
+  string  Value      = 20; //属性值
+}
+
+// 商品sku
+message Sku  {
+  int64  GoodsId     = 10; //商品id
+  int64  ProValIdFir = 20; //第一个商品属性值
+  int64  ProValIdSec = 30; //第二个商品属性值
+  int64  ProValIdThi = 40; //第三个商品属性值
+  string Price       = 50; //单价
+  int64  Stock       = 60; //库存
+}
+
+message CreateGoodsRequest {
+  GoodsInfo     GoodsInfo     = 10;
+  Property      Property      = 20;
+  PropertyValue PropertyValue = 30;
+  Sku           Sku           = 40;
+}
+
+message CreateGoodsResponse {
+  GoodsInfo     GoodsInfo     = 10;
+  Property      Property      = 20;
+  PropertyValue PropertyValue = 30;
+  Sku           Sku           = 40;
+}
+
+service Goods {
+  rpc CreateGoods(CreateGoodsRequest) returns (CreateGoodsResponse);
+}
+
